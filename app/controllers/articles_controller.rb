@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @article.update(author_id: current_user.id)
   end
 
   def create
