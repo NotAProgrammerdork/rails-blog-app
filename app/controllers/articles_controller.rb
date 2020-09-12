@@ -56,4 +56,8 @@ class ArticlesController < ApplicationController
 
     redirect_to article_path(@article)
   end
+
+  def popular
+    @articles = Article.all.order("views desc").limit(3)
+  end
 end

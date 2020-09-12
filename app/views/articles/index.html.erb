@@ -1,14 +1,10 @@
 <h1>All articles</h1>
 
 <ul id="articles">
+  <li><%= link_to "Click here to see the 3 most popular articles", popular_path %>
   <li><%= link_to "All tags", tags_path %></li>
-  <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article_path(article) %>
-    </li>
-  <% end %>
+  <%= render @articles %>
 </ul>
-<a href="popular.html.erb">Click here to see the 3 most popular articles</a>
 
 <% if logged_in? %>
   <%= link_to "Create a New Article", new_article_path, class: "new_article" %>
