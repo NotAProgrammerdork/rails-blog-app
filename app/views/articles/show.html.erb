@@ -1,17 +1,20 @@
 <h1><%= @article.title %></h1>
-
+<p>Author: <%= Author.find(@article.author_id).username %></p>
 <p>
   Tags:
   <% @article.tags.each do |tag| %>
     <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
+<br />
 
 <p><%= @article.body %></p>
 <% if logged_in? %>
   <%= link_to "edit", edit_article_path(@article) %>
   <%= link_to "delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
 <% end %>
+<br />
+<br />
 
 <h3>Comments (<%= @article.comments.size %>)</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
