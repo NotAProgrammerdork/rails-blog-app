@@ -6,6 +6,7 @@
     <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
+<p>Views: <%= @article.increment!(:views, 1).views %></p>
 <br />
 
 <p><%= @article.body %></p>
